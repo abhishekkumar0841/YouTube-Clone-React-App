@@ -1,8 +1,9 @@
 import React from "react";
+import Header from "./components/header/Header";
 
 const App = () => {
-  return <div className=" text-6xl">
-    App
+  return <div className="">
+    <Header/>
   </div>;
 };
 
