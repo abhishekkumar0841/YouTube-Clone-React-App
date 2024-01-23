@@ -3,7 +3,6 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import {
   BiSearch,
   BiMicrophone,
-  BiVideoOff,
   BiVideoPlus,
   BiBell,
   BiUser,
@@ -12,7 +11,7 @@ import YouTubeLogo from "../../assets/YouTube-Logo.png";
 
 const Header = () => {
   return (
-    <div className=" w-full h-[8vh] border px-6 py-2 flex items-center justify-between">
+    <div className=" w-full h-[8vh] border-b-2 flex items-center justify-between fixed top-0 left-0 px-6 py-8 z-50 bg-white">
       {/* hamburger menu and logo */}
       <div className="flex items-center gap-6">
         <RxHamburgerMenu className=" text-3xl font-bold cursor-pointer" />

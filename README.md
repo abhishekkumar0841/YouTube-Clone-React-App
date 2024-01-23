@@ -11,3 +11,7 @@
 - Body.jsx created
 - Showing video card with video thumbnail 
 - Format the publish date and also show on video card
+- Making Sidebar component
+- Adding Browser router functionality
+- Making Layout component
+- Styling to looks like just youtube
