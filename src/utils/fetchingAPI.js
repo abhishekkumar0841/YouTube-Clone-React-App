@@ -15,7 +15,6 @@ const options = {
 export const fetchingAPI = async (url) => {
   try {
     const { data } = await axios.get(`${BASE_URL}/${url}`, options);
-    // console.log("data in fetchingAPI.js:", data);
     return data;
   } catch (error) {
     console.log('ERROR IN FETCHING API:', error.message);

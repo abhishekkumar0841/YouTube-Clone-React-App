@@ -15,3 +15,8 @@
 - Adding Browser router functionality
 - Making Layout component
 - Styling to looks like just youtube
+- Create videoSlice
+- Create loadingSlice
+- Create store of slices
+- Shifting the logic of setting initialVideo state in redux
+- Creating InitialVideoShimmer and show it before video load

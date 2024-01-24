@@ -13,12 +13,12 @@ const VideoCard = ({ videoDetails }) => {
   const day = postedDate?.getDate();
 
   return (
-    <div className=" w-[350px] min-h-56 border cursor-pointer p-2">
+    <div className=" w-[350px] min-h-56 cursor-pointer p-2">
       <div className=" w-full overflow-hidden rounded-xl">
         <img
           src={videoDetails?.snippet?.thumbnails?.high?.url}
           alt="Thumbnail"
-          className=" w-full scale-[1.40]"
+          className=" w-full scale-[1.40] max-h-52"
         />
       </div>
       <div className=" mt-2">
