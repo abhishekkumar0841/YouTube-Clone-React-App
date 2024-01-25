@@ -20,3 +20,5 @@
 - Create store of slices
 - Shifting the logic of setting initialVideo state in redux
 - Creating InitialVideoShimmer and show it before video load
+- Managing the video category from redux
+- Add the functionality to change video category from sidebar

@@ -11,7 +11,9 @@ const Body = () => {
   const dispatch = useDispatch();
   const videos = useSelector((state) => state.videos.initialVideos);
   const loading = useSelector((state) => state.loading.isLoading);
-  const [selectedCategory, setSelectedCategory] = useState("New");
+  const selectedCategory = useSelector(
+    (state) => state.videos.selectedCategory
+  );
 
   useEffect(() => {
     async function fetchData() {
@@ -29,7 +31,7 @@ const Body = () => {
     }
 
     fetchData();
-  }, []);
+  }, [selectedCategory]);
 
   return (
     <Layout>
@@ -43,9 +45,14 @@ const Body = () => {
               ))}
           </>
         ) : (
-          videos?.map((video) => (
-            <VideoCard key={video?.id?.videoId} videoDetails={video} />
-          ))
+          videos?.map((video, idx) => {
+            return (
+              <VideoCard
+                key={video?.id?.videoId ? video?.id?.videoId : idx}
+                videoDetails={video}
+              />
+            );
+          })
         )}
       </div>
     </Layout>

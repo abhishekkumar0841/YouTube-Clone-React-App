@@ -7,7 +7,6 @@ const loadingSlice = createSlice({
   },
   reducers: {
     setLoading: (state, action) => {
-        console.log('action', action.payload);
       state.isLoading = action.payload;
     },
   },
