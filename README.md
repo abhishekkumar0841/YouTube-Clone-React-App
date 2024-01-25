@@ -23,3 +23,6 @@
 - Managing the video category from redux
 - Add the functionality to change video category from sidebar
 - Add video watching page for specific video and also show details of video
+- Managing redux state for the sidebar toggle
+- Adding the toggle functionality of sidebar for the body and the video page also
+- Adding the ScrollToTop.jsx component for resetting the default scroll to zero (top) when navigating between pages

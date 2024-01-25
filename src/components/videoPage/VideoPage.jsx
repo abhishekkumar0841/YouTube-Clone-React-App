@@ -1,9 +1,11 @@
 import React from "react";
 import Layout from "../layout/Layout";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const VideoPage = () => {
   const { state } = useLocation();
+  const sideBar = useSelector((state) => state.sideBar.showSideBar);
 
   const videoId = state?.id?.videoId;
   const channelName = state?.snippet?.channelTitle;
@@ -12,7 +14,7 @@ const VideoPage = () => {
 
   return (
     <Layout>
-      <div className="pl-10 absolute left-64">
+      <div className={sideBar ? "pl-10 absolute left-64" : "pl-0 absolute left-0"}>
         <div>
           <iframe
             width="760"
