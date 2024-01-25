@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setInitialVideos } from "../../redux/slices/videoSlice";
 import { setLoading } from "../../redux/slices/loadingSlice";
 import InitialVideoShimmer from "../shimmer/InitialVideoShimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const dispatch = useDispatch();

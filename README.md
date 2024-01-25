@@ -22,3 +22,4 @@
 - Creating InitialVideoShimmer and show it before video load
 - Managing the video category from redux
 - Add the functionality to change video category from sidebar
+- Add video watching page for specific video and also show details of video

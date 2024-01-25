@@ -1,6 +1,9 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const VideoCard = ({ videoDetails }) => {
+  const navigate = useNavigate();
+
   const videoTitle =
     videoDetails?.snippet?.title?.length > 60
       ? videoDetails?.snippet?.title?.substr(0, 60) + "..."
@@ -13,7 +16,10 @@ const VideoCard = ({ videoDetails }) => {
   const day = postedDate?.getDate();
 
   return (
-    <div className=" w-[350px] min-h-56 cursor-pointer p-2">
+    <div
+      className=" w-[350px] min-h-56 p-2 cursor-pointer"
+      onClick={() => navigate("/video", { state: { ...videoDetails } })}
+    >
       <div className=" w-full overflow-hidden rounded-xl">
         <img
           src={videoDetails?.snippet?.thumbnails?.high?.url}

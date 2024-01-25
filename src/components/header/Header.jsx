@@ -8,6 +8,7 @@ import {
   BiUser,
 } from "react-icons/bi";
 import YouTubeLogo from "../../assets/YouTube-Logo.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -15,7 +16,9 @@ const Header = () => {
       {/* hamburger menu and logo */}
       <div className="flex items-center gap-6">
         <RxHamburgerMenu className=" text-3xl font-bold cursor-pointer" />
-        <img src={YouTubeLogo} alt="YouTube" className=" w-20" />
+        <Link to={"/"}>
+          <img src={YouTubeLogo} alt="YouTube" className=" w-20" />
+        </Link>
       </div>
 
       {/* Search input form and voice */}
