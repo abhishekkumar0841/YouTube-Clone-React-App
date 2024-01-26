@@ -35,3 +35,6 @@ export const categories = [
   { name: "Gym", icon: <CgGym /> },
   { name: "Crypto", icon: <MdOutlineDeveloperMode /> },
 ];
+
+export const YouTube_Search_API =
+  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";

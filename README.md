@@ -26,3 +26,8 @@
 - Managing redux state for the sidebar toggle
 - Adding the toggle functionality of sidebar for the body and the video page also
 - Adding the ScrollToTop.jsx component for resetting the default scroll to zero (top) when navigating between pages
+- Showing hover effect and adding active class to the buttons of sidebar
+- Implement search functionality with Debouncing
+- Create SearchResultsBox
+- Create SearchResultsPage
+- Adding YouTube_Search_API in constants for showing related search suggestions on the basis of user input
