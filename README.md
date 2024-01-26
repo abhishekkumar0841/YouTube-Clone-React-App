@@ -31,3 +31,9 @@
 - Create SearchResultsBox
 - Create SearchResultsPage
 - Adding YouTube_Search_API in constants for showing related search suggestions on the basis of user input
+- Installing React-player npm package and use on the place of iframe
+- Fetching video details and related video with different new url
+- Showing likes count with formatting like youTube
+- Adding likes and dislike functionality (dummy)
+- Create LikeComponent
+- Add VideoDetailsDesc component and show description, publish date, total views with collapse functionality

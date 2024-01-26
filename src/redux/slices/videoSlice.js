@@ -5,6 +5,8 @@ const videoSlice = createSlice({
     initialVideos: [],
     searchVideos: [],
     selectedCategory: "New",
+    videoDetails: null,
+    relatedVideos: [],
   },
   reducers: {
     setInitialVideos: (state, action) => {
@@ -16,8 +18,20 @@ const videoSlice = createSlice({
     setSelectedCategory: (state, action) => {
       state.selectedCategory = action?.payload;
     },
+    setVideoDetails: (state, action) => {
+      state.videoDetails = action.payload;
+    },
+    setRelatedVideos: (state, action) => {
+      state.relatedVideos = action.payload;
+    },
   },
 });
 
-export const { setInitialVideos, setSearchVideos, setSelectedCategory } = videoSlice.actions;
+export const {
+  setInitialVideos,
+  setSearchVideos,
+  setSelectedCategory,
+  setVideoDetails,
+  setRelatedVideos,
+} = videoSlice.actions;
 export default videoSlice.reducer;

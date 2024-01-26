@@ -1,8 +1,9 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const VideoCard = ({ videoDetails }) => {
   const navigate = useNavigate();
+  const id = videoDetails?.id?.videoId
 
   const videoTitle =
     videoDetails?.snippet?.title?.length > 60
@@ -18,7 +19,7 @@ const VideoCard = ({ videoDetails }) => {
   return (
     <div
       className=" w-[350px] min-h-56 p-2 cursor-pointer"
-      onClick={() => navigate("/video", { state: { ...videoDetails } })}
+      onClick={() => navigate(`/video/${id}`)}
     >
       <div className=" w-full overflow-hidden rounded-xl">
         <img
