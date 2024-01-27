@@ -1,3 +1,5 @@
+import dateFormat from "dateformat";
+
 export const likeFormatter = (likeCount) => {
   if (likeCount < 1000) {
     return likeCount.toString();
@@ -14,3 +16,6 @@ export const formatDate = (dateString) => {
     return formattedDate;
   };
   
+export const dateFormatter = (rawDate)=>{
+  return dateFormat(rawDate, "mmmm dS, yyyy")
+}

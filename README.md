@@ -37,3 +37,7 @@
 - Adding likes and dislike functionality (dummy)
 - Create LikeComponent
 - Add VideoDetailsDesc component and show description, publish date, total views with collapse functionality
+- Install dateformat npm package for formatting date
+- Add RelatedVideoCardShimmer
+- Add VideoPageShimmer
+- Showing related videos list on video page

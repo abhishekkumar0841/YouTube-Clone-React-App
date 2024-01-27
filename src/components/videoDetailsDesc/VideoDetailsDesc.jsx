@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { formatDate } from "../../utils/formatter";
+import { dateFormatter } from "../../utils/formatter";
 
 const VideoDetailsDesc = ({ videoDesc, viewCount, publishedAt }) => {
-  const publishDate = formatDate(publishedAt);
+  const publishDate = dateFormatter(publishedAt);
   const [collapse, setCollapse] = useState(true);
   const desc = collapse ? videoDesc?.substr(0, 100) : videoDesc
 
   return (
-    <div className="bg-gray-100 rounded-lg p-5 mt-8">
+    <div className="bg-gray-100 rounded-lg p-5 mt-4">
       <div className=" text-lg font-bold ">
-        <span>{viewCount} views</span> <span>{publishDate}</span>
+        <span>{viewCount} views,</span> <span>{publishDate}</span>
       </div>
       <span className=" text-lg">
         {desc} {" "}

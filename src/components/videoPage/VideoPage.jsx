@@ -4,20 +4,20 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ReactPlayer from "react-player";
 import { fetchingAPI } from "../../utils/fetchingAPI";
-import {
-  setRelatedVideos,
-  setVideoDetails,
-} from "../../redux/slices/videoSlice";
+import { setVideoDetails } from "../../redux/slices/videoSlice";
 import { likeFormatter } from "../../utils/formatter";
 import LikeComponent from "../likeComponent/LikeComponent";
 import VideoDetailsDesc from "../videoDetailsDesc/VideoDetailsDesc";
+import RelatedVideosList from "../relatedVideosList/RelatedVideosList";
+import { setLoading } from "../../redux/slices/loadingSlice";
+import VideoPageShimmer from "../shimmer/VideoPageShimmer";
 
 const VideoPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const sideBar = useSelector((state) => state.sideBar.showSideBar);
   const videoDetail = useSelector((state) => state.videos.videoDetails);
-  const videos = useSelector((state) => state.videos.relatedVideos);
+  const loading = useSelector((state) => state.loading.isLoading);
 
   const channelName = videoDetail?.snippet?.channelTitle;
   const videoTitle = videoDetail?.snippet?.title;
@@ -33,49 +33,62 @@ const VideoPage = () => {
   const totalLikes = likeFormatter(likesCount);
 
   useEffect(() => {
-    fetchingAPI(`videos?part=snippet,statistics&id=${id}`).then((data) => {
-      dispatch(setVideoDetails(data?.items[0]));
-    });
-
-    fetchingAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`).then(
-      (data) => {
-        dispatch(setRelatedVideos(data?.items));
+    (async function () {
+      dispatch(setLoading(true));
+      try {
+        const data = await fetchingAPI(
+          `videos?part=snippet,statistics&id=${id}`
+        );
+        dispatch(setVideoDetails(data?.items[0]));
+      } catch (error) {
+        console.log(error.message);
+      } finally {
+        dispatch(setLoading(false));
       }
-    );
+    })();
   }, [id]);
 
   return (
     <Layout>
       <div
-        className={sideBar ? "pl-10 absolute left-64 pb-10" : "pl-0 absolute left-0 pb-10"}
+        className={
+          sideBar
+            ? "pl-10 absolute left-64 pb-10 flex gap-14 h-[100vh]"
+            : "pl-0 absolute left-0 pb-10 flex gap-14 h-[100vh]"
+        }
       >
-        <div>
-          <ReactPlayer
-            url={"https://www.youtube.com/embed/" + id}
-            controls
-            width={720}
-            height={460}
-          />
-        </div>
-        <div className="flex flex-col gap-2 mt-5 max-w-[760px]">
-          <h1 className=" font-bold text-xl">{videoTitle}</h1>
-          <div className="flex items-center gap-2">
-            <img
-              src={`https://api.dicebear.com/5.x/initials/svg?seed=${channelName}`}
-              alt=""
-              width={50}
-              height={50}
-              className="rounded-full"
+        {loading ? (
+          <VideoPageShimmer />
+        ) : (
+          <div>
+            <ReactPlayer
+              url={"https://www.youtube.com/embed/" + id}
+              controls
+              width={sideBar ? 720 : 980}
+              height={460}
             />
-            <h1 className=" font-bold text-xl">{channelName}</h1>
-            <LikeComponent totalLikes={totalLikes} />
+            <div className="flex flex-col gap-2 mt-5 max-w-[760px]">
+              <h1 className=" font-bold text-xl">{videoTitle}</h1>
+              <div className="flex items-center gap-2">
+                <img
+                  src={`https://api.dicebear.com/5.x/initials/svg?seed=${channelName}`}
+                  alt=""
+                  width={50}
+                  height={50}
+                  className="rounded-full"
+                />
+                <h1 className=" font-bold text-xl">{channelName}</h1>
+                <LikeComponent totalLikes={totalLikes} />
+              </div>
+              <VideoDetailsDesc
+                viewCount={viewCount}
+                publishedAt={publishedAt}
+                videoDesc={videoDesc}
+              />
+            </div>
           </div>
-          <VideoDetailsDesc
-            viewCount={viewCount}
-            publishedAt={publishedAt}
-            videoDesc={videoDesc}
-          />
-        </div>
+        )}
+        <RelatedVideosList id={id} />
       </div>
     </Layout>
   );
