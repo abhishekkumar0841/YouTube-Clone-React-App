@@ -41,3 +41,5 @@
 - Add RelatedVideoCardShimmer
 - Add VideoPageShimmer
 - Showing related videos list on video page
+- Add Speech Recognition functionality for voice search
+- Creating SearchComponent and shifting all search input logic in that

@@ -6,6 +6,7 @@ import {
   BiVideoPlus,
   BiBell,
   BiUser,
+  BiMicrophoneOff,
 } from "react-icons/bi";
 import YouTubeLogo from "../../assets/YouTube-Logo.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -18,44 +19,12 @@ import {
   setResults,
   setSearchTerm,
 } from "../../redux/slices/searchResultsSlice";
+import useSpeechRecognition from "../../hooks/speechRecognition/useSpeechRecognition";
+import SearchComponent from "../searchComponent/SearchComponent";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const inputRef = useRef(null);
-  const { searchTerm } = useSelector((state) => state.searchResults);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      fetchYoutubeSearchResults();
-    }, 300);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [searchTerm]);
-
-  const fetchYoutubeSearchResults = async () => {
-    try {
-      const response = await axios.get(YouTube_Search_API + searchTerm);
-      dispatch(setResults(response?.data?.[1]));
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  function handleInput(e) {
-    dispatch(setSearchTerm(e.target.value));
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (!searchTerm) return;
-    navigate(`/search/${searchTerm}`);
-    dispatch(setSearchTerm(""));
-    inputRef.current.blur(); // Call blur method on the input element reference
-  }
-
+  
   const handleSideBar = () => {
     dispatch(setSideBar());
   };
@@ -74,28 +43,7 @@ const Header = () => {
       </div>
 
       {/* Search input form and voice */}
-      <div className="flex items-center gap-6 relative">
-        <form
-          className="border-2 flex items-center w-[600px] rounded-3xl "
-          onSubmit={handleSubmit}
-        >
-          <input
-            type="text"
-            placeholder="Search"
-            className="px-6 border-none w-[550px] py-1 bg-transparent text-xl outline-blue-400 rounded-l-3xl"
-            value={searchTerm}
-            onChange={handleInput}
-            ref={inputRef}
-          />
-          <button className="w-[50px] flex items-center justify-center">
-            <BiSearch className=" text-2xl" />
-          </button>
-        </form>
-        <div className=" bg-gray-200 rounded-full p-2">
-          <BiMicrophone className=" text-2xl cursor-pointer" />
-        </div>
-        {searchTerm && <SearchResultsBox />}
-      </div>
+      <SearchComponent/>
 
       {/* video upload button, notification button and user logo */}
       <div className="flex items-center gap-4">
