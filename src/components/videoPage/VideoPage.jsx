@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Layout from "../layout/Layout";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ReactPlayer from "react-player";
 import { fetchingAPI } from "../../utils/fetchingAPI";
@@ -69,15 +69,17 @@ const VideoPage = () => {
             />
             <div className="flex flex-col gap-2 mt-5 max-w-[760px]">
               <h1 className=" font-bold text-xl">{videoTitle}</h1>
-              <div className="flex items-center gap-2">
-                <img
-                  src={`https://api.dicebear.com/5.x/initials/svg?seed=${channelName}`}
-                  alt=""
-                  width={50}
-                  height={50}
-                  className="rounded-full"
-                />
-                <h1 className=" font-bold text-xl">{channelName}</h1>
+              <div className="flex items-center gap-20 relative">
+                <Link to={`/channel/${channelId}`} className="flex items-center gap-2">
+                  <img
+                    src={`https://api.dicebear.com/5.x/initials/svg?seed=${channelName}`}
+                    alt=""
+                    width={50}
+                    height={50}
+                    className="rounded-full"
+                  />
+                  <h1 className=" font-bold text-xl">{channelName}</h1>
+                </Link>
                 <LikeComponent totalLikes={totalLikes} />
               </div>
               <VideoDetailsDesc

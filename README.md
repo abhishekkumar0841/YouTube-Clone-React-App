@@ -43,3 +43,7 @@
 - Showing related videos list on video page
 - Add Speech Recognition functionality for voice search
 - Creating SearchComponent and shifting all search input logic in that
+- Making Channel logo link for taking user to channel page
+- Making Channel page and showing all channel related details on it
+- Make ChannelTemplate.jsx
+- Create channelSlice.js for setting channel details in it

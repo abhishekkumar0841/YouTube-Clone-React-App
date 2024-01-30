@@ -15,7 +15,7 @@ const LikeComponent = ({ totalLikes }) => {
   };
 
   return (
-    <button className=" ml-5 flex items-center gap-3 py-2 px-4 bg-gray-100 rounded-full">
+    <button className=" ml-5 flex items-center gap-3 py-2 px-4 bg-gray-100 rounded-full absolute right-0">
       <span className="flex items-center gap-2" onClick={handleLike}>
         {like ? (
           <BiSolidLike className=" text-2xl" />
