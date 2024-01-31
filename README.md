@@ -47,3 +47,6 @@
 - Making Channel page and showing all channel related details on it
 - Make ChannelTemplate.jsx
 - Create channelSlice.js for setting channel details in it
+- Creating modalSlice for handling modal on channel page
+- Make ChannelTemplateModel.jsx
+- Showing compulsory details about on model

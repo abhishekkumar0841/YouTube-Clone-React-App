@@ -9,12 +9,14 @@ import {
 } from "../../redux/slices/channelSlice";
 import VideoCard from "../videoCard/VideoCard";
 import ChannelTemplate from "./channelTemplate/ChannelTemplate";
+import ChannelTemplateModal from "./channelTemplateModal/ChannelTemplateModal";
 
 const ChannelPage = () => {
   const { channelId } = useParams();
   const dispatch = useDispatch();
   const sideBar = useSelector((state) => state.sideBar.showSideBar);
   const channelDetails = useSelector((state) => state?.channel?.channelDetails);
+
   const channelVideos = useSelector(
     (state) => state?.channel?.channelVideoLists
   );
@@ -59,6 +61,7 @@ const ChannelPage = () => {
             <VideoCard key={video?.id?.videoId} videoDetails={video} />
           ))}
         </div>
+       
       </div>
     </Layout>
   );

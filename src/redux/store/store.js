@@ -4,6 +4,7 @@ import loadingSlice from "../slices/loadingSlice";
 import sideBarSlice from "../slices/sideBarSlice";
 import searchResultsSlice from "../slices/searchResultsSlice";
 import channelSlice from "../slices/channelSlice";
+import modalSlice from "../slices/modalSlice";
 
 const state = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const state = configureStore({
     sideBar: sideBarSlice,
     searchResults: searchResultsSlice,
     channel: channelSlice,
+    modal: modalSlice,
   },
 });
 

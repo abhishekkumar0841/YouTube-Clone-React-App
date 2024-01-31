@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const VideoCard = ({ videoDetails }) => {
   const navigate = useNavigate();
-  const id = videoDetails?.id?.videoId
+  const id = videoDetails?.id?.videoId;
 
   const videoTitle =
     videoDetails?.snippet?.title?.length > 60
@@ -16,12 +16,20 @@ const VideoCard = ({ videoDetails }) => {
   const postedDate = new Date(timeDiff);
   const day = postedDate?.getDate();
 
+  function navigateToVideoPage() {
+    navigate(`/video/${id}`);
+  }
+
+  // function navigateToChannelPage() {
+  //   navigate(`/channel/${id}`);
+  // }
+
   return (
-    <div
-      className=" w-[350px] min-h-56 p-2 cursor-pointer"
-      onClick={() => navigate(`/video/${id}`)}
-    >
-      <div className=" w-full overflow-hidden rounded-xl">
+    <div className=" w-[350px] min-h-56 p-2 cursor-pointer">
+      <div
+        className=" w-full overflow-hidden rounded-xl"
+        onClick={navigateToVideoPage}
+      >
         <img
           src={videoDetails?.snippet?.thumbnails?.high?.url}
           alt="Thumbnail"
@@ -29,9 +37,16 @@ const VideoCard = ({ videoDetails }) => {
         />
       </div>
       <div className=" mt-2">
-        <h1>{videoTitle}</h1>
-        <p className=" font-semibold">{videoDetails?.snippet?.channelTitle}</p>
-        <p>
+        <h1 className=" font-semibold" onClick={navigateToVideoPage}>
+          {videoTitle}
+        </h1>
+        <p className=" font-semibold text-gray-500">
+          {videoDetails?.snippet?.channelTitle}
+        </p>
+        <p
+          className=" font-semibold text-gray-500"
+          onClick={navigateToVideoPage}
+        >
           {day} <span>Days ago</span>
         </p>
       </div>
