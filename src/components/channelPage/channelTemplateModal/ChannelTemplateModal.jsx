@@ -7,7 +7,6 @@ import { BiGlobe, BiSolidVideos } from "react-icons/bi";
 import { IoIosPeople } from "react-icons/io";
 import { BsGraphUpArrow } from "react-icons/bs";
 import { FaEarthAmericas } from "react-icons/fa6";
-import { TbListDetails } from "react-icons/tb";
 
 const ChannelTemplateModal = () => {
   const { channelDetails } = useSelector((state) => state.channel);
@@ -27,8 +26,17 @@ const ChannelTemplateModal = () => {
     dispatch(setOpenModal());
   };
 
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains("modalOverlay")) {
+      dispatch(setOpenModal());
+    }
+  };
+
   return (
-    <div className=" w-[100vw] h-[100vh] flex items-center justify-center bg-black bg-opacity-60 fixed top-0 z-50">
+    <div
+      onClick={handleOverlayClick}
+      className="modalOverlay cursor-pointer w-[100vw] h-[100vh] flex items-center justify-center bg-black bg-opacity-70 fixed top-0 z-50"
+    >
       <div className=" absolute top-24 rounded-lg border-gray-100 p-8 bg-gray-700 text-white w-4/12 max-h-[30rem] overflow-y-scroll">
         <div className="flex items-center justify-between text-2xl mb-5">
           <p className=" font-semibold text-gray-400">About</p>
