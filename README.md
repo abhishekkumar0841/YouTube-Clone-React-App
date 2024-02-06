@@ -1,5 +1,20 @@
 # YouTube Clone React App
+- Home Page
+![Screenshot 2024-02-03 235121](https://github.com/abhishekkumar0841/YouTube-Clone-React-App/assets/121709051/391c153f-ce81-43c5-894e-a78f84416480)
 
+- Home Page (without sidebar)
+![Screenshot 2024-02-04 000411](https://github.com/abhishekkumar0841/YouTube-Clone-React-App/assets/121709051/6db02336-4d42-43bf-b036-e764c5c22382)
+
+- Video viewing page
+![Screenshot 2024-02-03 235829](https://github.com/abhishekkumar0841/YouTube-Clone-React-App/assets/121709051/76fb578c-d38f-4485-b4c3-4947a1141c0d)
+
+- Channel page
+![Screenshot 2024-02-03 235954](https://github.com/abhishekkumar0841/YouTube-Clone-React-App/assets/121709051/a7c1699b-c794-4b45-9a3e-cd105987e5be)
+
+- About channel (Modal)
+![Screenshot 2024-02-04 000133](https://github.com/abhishekkumar0841/YouTube-Clone-React-App/assets/121709051/ec8685ce-4725-4fca-ae66-47f28b70692f)
+
+# Steps of creation of this project
 - Initialize app using --> npm create vite@latest
 - Setup tailwind css 
 - Install React router DOM 
@@ -52,4 +67,7 @@
 - Showing compulsory details about on model
 - Adding the functionality for navigating to directly on channel page from home page
 - Closing modal when user click outside of modal
+<<<<<<< HEAD
 - Adding higher order component for showing live broadcast video on home page(body)
+=======
+>>>>>>> 2addd0d91a5962cd1b6c18876f977f435e51a9d1
