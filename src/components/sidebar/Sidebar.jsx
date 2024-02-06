@@ -20,7 +20,7 @@ const Sidebar = () => {
     <div
       className={
         sideBar
-          ? "flex flex-col w-2/12 pb-12 h-[90vh] overflow-x-scroll gap-8 fixed"
+          ? "flex flex-col w-2/12 pb-12 h-[90vh] overflow-x-scroll gap-8 fixed "
           : " hidden"
       }
     >
@@ -28,8 +28,8 @@ const Sidebar = () => {
         <button
           key={category.name}
           onClick={handleCategory}
-          className={`flex items-center gap-8 text-2xl font-semibold hover:bg-gray-200 transition-all duration-200 ease-in-out rounded-lg py-1 px-4 max-w-52 ${
-            selectedCategory === category.name ? "bg-gray-200" : ""
+          className={`flex items-center gap-8 text-2xl font-semibold hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-200 ease-in-out rounded-lg py-1 px-4 max-w-52 ${
+            selectedCategory === category.name ? "bg-gray-200 dark:bg-gray-600" : ""
           }`}
         >
           <span>{category.icon}</span>

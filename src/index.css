@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* body{
+  max-width: 1440px;
+} */
+
+/* Webkit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #1e2cc1; /* Change the color as needed */
+    border-radius: 6px;
+  }
+  
+  /* Firefox */
+  /* Note: For Firefox, you can use the scrollbar-color property */
+  /* You can set both the thumb and track color using scrollbar-color */
+  /* Example: scrollbar-color: #4f4f4f #f0f0f0; */
+  /* The first color is for the thumb, and the second one is for the track */
+  
+  /* Hide the scrollbar track (optional) */
+  /* Set to 'none' if you want to hide the track */
+  ::-webkit-scrollbar-track {
+    display: none; 
+  }
+  

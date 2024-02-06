@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { fetchingAPI } from "../../utils/fetchingAPI";
-import VideoCard from "../videoCard/VideoCard";
+import VideoCard, { isLive } from "../videoCard/VideoCard";
 import Layout from "../layout/Layout";
 import { useDispatch, useSelector } from "react-redux";
 import { setInitialVideos } from "../../redux/slices/videoSlice";
@@ -15,6 +15,9 @@ const Body = () => {
     (state) => state.videos.selectedCategory
   );
   const sideBar = useSelector((state) => state.sideBar.showSideBar);
+
+  //higher order component
+  const LiveCard = isLive(VideoCard);
 
   useEffect(() => {
     async function fetchData() {
@@ -37,11 +40,9 @@ const Body = () => {
   return (
     <Layout>
       <div
-        className={
-          sideBar
-            ? "flex flex-wrap gap-10 w-10/12 justify-between pl-10  absolute left-64"
-            : "flex flex-wrap gap-5 w-full justify-between pl-0  absolute left-0"
-        }
+        className={`flex flex-wrap justify-between absolute   ${
+          sideBar ? "gap-10 w-10/12 pl-10 left-64" : "gap-5 w-full pl-0 left-0"
+        }`}
       >
         {loading ? (
           <>
@@ -52,14 +53,19 @@ const Body = () => {
               ))}
           </>
         ) : (
-          videos?.map((video, idx) => {
-            return (
+          videos?.map((video, idx) =>
+            video?.snippet?.liveBroadcastContent === "live" ? (
+              <LiveCard
+                key={video?.id?.videoId ? video?.id?.videoId : idx}
+                videoDetails={video}
+              />
+            ) : (
               <VideoCard
                 key={video?.id?.videoId ? video?.id?.videoId : idx}
                 videoDetails={video}
               />
-            );
-          })
+            )
+          )
         )}
       </div>
     </Layout>

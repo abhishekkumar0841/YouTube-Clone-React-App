@@ -30,7 +30,7 @@ const RelatedVideosList = ({ id }) => {
   }, [id]);
 
   return (
-    <div className="h-[110vh] overflow-x-scroll">
+    <div className="h-[110vh] overflow-x-scroll ">
       {loading
         ? Array(6)
             .fill("")

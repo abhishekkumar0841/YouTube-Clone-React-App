@@ -32,12 +32,17 @@ const SearchResultsPage = () => {
 
   return (
     <Layout>
-      <div
+      {/* <div
         className={
           sideBar
-            ? "flex flex-wrap gap-10 w-10/12 justify-between pl-10  absolute left-64"
+            ? "flex flex-wrap gap-10 w-10/12 justify-between pl-10  absolute left-64 "
             : "flex flex-wrap gap-5 w-full justify-between pl-0  absolute left-0"
         }
+      > */}
+      <div
+        className={`flex flex-wrap justify-between absolute  ${
+          sideBar ? "gap-10 w-10/12 pl-10 left-64" : "gap-5 w-full pl-0 left-0"
+        } `}
       >
         {loading
           ? Array(6)

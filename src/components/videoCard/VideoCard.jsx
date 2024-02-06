@@ -56,4 +56,16 @@ const VideoCard = ({ videoDetails }) => {
   );
 };
 
+//higher order component
+export const isLive = (Component)=>{
+  return ({videoDetails})=>{
+    return (
+      <div className="relative">
+        <label className="absolute z-20 bg-opacity-70 top-2 left-2 bg-black text-white font-semibold px-4 py-1 rounded-lg">Live Broadcast</label>
+        <Component videoDetails={videoDetails} />
+      </div>
+    )
+  }
+}
+
 export default VideoCard;

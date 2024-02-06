@@ -52,3 +52,4 @@
 - Showing compulsory details about on model
 - Adding the functionality for navigating to directly on channel page from home page
 - Closing modal when user click outside of modal
+- Adding higher order component for showing live broadcast video on home page(body)

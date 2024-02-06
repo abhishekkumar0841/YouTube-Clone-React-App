@@ -40,28 +40,25 @@ const ChannelPage = () => {
   return (
     <Layout>
       <div
-        className={
-          sideBar
-            ? "pl-10 absolute left-64 pb-10 flex flex-col  gap-14 h-[100vh] w-[78vw] "
-            : "pl-0 absolute left-0 pb-10 flex flex-col gap-14 h-[100vh] w-full "
-        }
+        className={`absolute pb-10 flex flex-col gap-14 h-[100vh]  ${
+          sideBar ? "pl-10 left-64 w-[78vw]" : "pl-0 left-0 w-full"
+        }`}
       >
         <div className="h-72">
           <img
             className=" w-full h-full rounded-xl"
             src={channelBanner}
-            alt=""
+            alt="Channel Banner"
           />
         </div>
         <div>
           <ChannelTemplate channelDetails={channelDetails} />
         </div>
-        <div className={`flex flex-wrap ${sideBar ? " gap-10" : "gap-5"}`}>
+        <div className={`flex flex-wrap  ${sideBar ? " gap-10" : "gap-5"}`}>
           {channelVideos?.map((video) => (
             <VideoCard key={video?.id?.videoId} videoDetails={video} />
           ))}
         </div>
-       
       </div>
     </Layout>
   );

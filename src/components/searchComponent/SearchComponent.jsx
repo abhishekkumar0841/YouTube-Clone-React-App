@@ -71,7 +71,7 @@ const SearchComponent = () => {
   };
 
   return (
-    <div className="flex items-center gap-6 relative">
+    <div className="flex items-center gap-6 relative ">
       <form
         className="border-2 flex items-center w-[600px] rounded-3xl "
         onSubmit={handleSubmit}
@@ -88,7 +88,7 @@ const SearchComponent = () => {
           <BiSearch className=" text-2xl" />
         </button>
       </form>
-      <div className=" bg-gray-200 rounded-full p-2" onClick={handleMicrophone}>
+      <div className=" bg-gray-200 dark:bg-gray-600 rounded-full p-2" onClick={handleMicrophone}>
         {isListening ? (
           <BiMicrophoneOff className=" text-2xl cursor-pointer animate-bounce" />
         ) : (

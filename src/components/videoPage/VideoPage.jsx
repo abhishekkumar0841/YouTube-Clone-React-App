@@ -51,11 +51,9 @@ const VideoPage = () => {
   return (
     <Layout>
       <div
-        className={
-          sideBar
-            ? "pl-10 absolute left-64 pb-10 flex gap-14 h-[100vh]"
-            : "pl-0 absolute left-0 pb-10 flex gap-14 h-[100vh]"
-        }
+        className={`absolute pb-10 flex gap-14 h-[100vh]  ${
+          sideBar ? "pl-10 left-64" : "pl-0 left-0"
+        }`}
       >
         {loading ? (
           <VideoPageShimmer />
@@ -70,7 +68,10 @@ const VideoPage = () => {
             <div className="flex flex-col gap-2 mt-5 max-w-[760px]">
               <h1 className=" font-bold text-xl">{videoTitle}</h1>
               <div className="flex items-center gap-20 relative">
-                <Link to={`/channel/${channelId}`} className="flex items-center gap-2">
+                <Link
+                  to={`/channel/${channelId}`}
+                  className="flex items-center gap-2"
+                >
                   <img
                     src={`https://api.dicebear.com/5.x/initials/svg?seed=${channelName}`}
                     alt=""

@@ -7,7 +7,7 @@ const VideoDetailsDesc = ({ videoDesc, viewCount, publishedAt }) => {
   const desc = collapse ? videoDesc?.substr(0, 100) : videoDesc
 
   return (
-    <div className="bg-gray-100 rounded-lg p-5 mt-4">
+    <div className="bg-gray-100 rounded-lg p-5 mt-4 ">
       <div className=" text-lg font-bold ">
         <span>{viewCount} views,</span> <span>{publishDate}</span>
       </div>
